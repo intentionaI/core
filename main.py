@@ -47,6 +47,13 @@ async def spam(ctx, amount: int, *, message):
         await ctx.send(message)
 
 @bot.command()
+async def version(ctx):
+    await ctx.message.delete()
+    embed = discord.Embed(title="Discord Version", colour=0x666666, inline=False)
+    embed.add_field(name="Version:", value=str(discord.__version__), inline=False)
+    await ctx.send(embed=embed)
+
+@bot.command()
 async def chspam(ctx, *, message):
     guild = ctx.message.guild
     await ctx.message.delete()
@@ -72,6 +79,7 @@ async def vspam(ctx, *, message):
 
 @bot.command()
 async def delall(ctx):
+    await ctx.message.delete()
     for channel in ctx.guild.channels:
         await channel.delete()
     for category in ctx.guild.categories:
@@ -79,25 +87,10 @@ async def delall(ctx):
 
 @bot.command()
 async def delch(ctx, name):
+    await ctx.message.delete()
     for channel in ctx.guild.channels:
         if channel.name == name:
             await channel.delete()
-
-@bot.command()
-async def stopspammute(ctx):
-	spammute = False
-	print(spammute)
-
-@bot.command()
-async def spammute(ctx, member: discord.Member = None):
-	spammute = True
-	while spammute == True:
-		await member.edit(mute=True)
-		time.sleep(0.5)
-		await member.edit(mute=False)
-		if spammute == False:
-			print(spammute)
-			break;
 
 @bot.event
 async def on_ready():
