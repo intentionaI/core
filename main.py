@@ -91,5 +91,6 @@ async def test(ctx, member: discord.Member = None):
 async def on_ready():
     tprint("Core", font="bulbhead")
     print("started, logged in as " + str(bot.user))
+    print("discord version: " + str(discord.__version__))
 
 bot.run(config.get("token"), bot = False)
