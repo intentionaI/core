@@ -84,8 +84,20 @@ async def delch(ctx, name):
             await channel.delete()
 
 @bot.command()
-async def test(ctx, member: discord.Member = None):
-    ctx.send(member.name)
+async def stopspammute(ctx):
+	spammute = False
+	print(spammute)
+
+@bot.command()
+async def spammute(ctx, member: discord.Member = None):
+	spammute = True
+	while spammute == True:
+		await member.edit(mute=True)
+		time.sleep(0.5)
+		await member.edit(mute=False)
+		if spammute == False:
+			print(spammute)
+			break;
 
 @bot.event
 async def on_ready():
