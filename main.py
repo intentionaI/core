@@ -78,6 +78,11 @@ async def vspam(ctx, *, message):
         await guild.create_voice_channel(str(message))
 
 @bot.command()
+async def stunnalaugh(ctx):
+    await ctx.message.delete()
+    await ctx.send(':joy: :joy: :point_up:')
+
+@bot.command()
 async def delall(ctx):
     await ctx.message.delete()
     for channel in ctx.guild.channels:
@@ -91,6 +96,11 @@ async def delch(ctx, name):
     for channel in ctx.guild.channels:
         if channel.name == name:
             await channel.delete()
+
+@bot.command()
+async def test(ctx):
+    channel = ctx.author.voice.channel
+    await channel.connect()
 
 @bot.event
 async def on_ready():
