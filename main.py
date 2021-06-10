@@ -81,6 +81,11 @@ async def vspam(ctx, *, message):
 async def stunnalaugh(ctx):
     await ctx.message.delete()
     await ctx.send(':joy: :joy: :point_up:')
+	
+@bot.command()
+async def wikstunnalaugh(ctx):
+    await ctx.message.delete()
+    await ctx.send(':STUNNALAUGH: :STUNNALAUGH: :STUNNAPOINTUP:')
 
 @bot.command()
 async def delall(ctx):
