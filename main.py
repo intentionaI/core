@@ -97,7 +97,7 @@ async def stunnalaugh(ctx):
 @bot.command()
 async def wikstunnalaugh(ctx):
     await ctx.message.delete()
-    await ctx.send(':STUNNALAUGH: :STUNNALAUGH: :STUNNAPOINTUP:')
+    await ctx.send('<:STUNNALAUGH:840583156285046835> <:STUNNAPOINTUP:840604240803790848> <:STUNNAPOINTUP:840604240803790848>')
 
 @bot.command()
 async def delall(ctx):
