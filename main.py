@@ -136,4 +136,190 @@ async def on_ready():
     print("started, logged in as " + str(bot.user))
     print("discord version: " + str(discord.__version__))
 
+## NSFW
+@bot.command()
+async def boobs(ctx): 
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/boobs")
+    res = r.json()
+    embed = discord.Embed(title="Boobs!", color=0xff0000)
+    embed.set_image(url=res["url"])
+    await ctx.send(embed=embed)  
+
+
+
+@bot.command()
+async def pussy(ctx): 
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/pussy")
+    res = r.json()
+    embed = discord.Embed(title="Pussy!", color=0xff0000)
+    embed.set_image(url=res["url"])
+    await ctx.send(embed=embed)  
+
+
+
+@bot.command()
+async def nsfwneko(ctx): 
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/nsfw_neko_gif")
+    res = r.json()
+    embed = discord.Embed(title="NSFW Neko!", color=0xff0000)
+    embed.set_image(url=res["url"])
+    await ctx.send(embed=embed)  
+
+
+
+@bot.command()
+async def neko(ctx): 
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/lewd")
+    res = r.json()
+    embed = discord.Embed(title="Neko!", color=0xff0000)
+    embed.set_image(url=res["url"])
+    await ctx.send(embed=embed)  
+
+
+
+@bot.command()
+async def lesbian(ctx): 
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/les")
+    res = r.json()
+    embed = discord.Embed(title="Lesbian!", color=0xff0000)
+    embed.set_image(url=res["url"])
+    await ctx.send(embed=embed)  
+
+
+
+@bot.command()
+async def cumslut(ctx): 
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/cum")
+    res = r.json()
+    embed = discord.Embed(title="Cumsluts!", color=0xff0000)
+    embed.set_image(url=res["url"])
+    await ctx.send(embed=embed)  
+
+
+
+@bot.command()
+async def sex(ctx, user: discord.User = None): 
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/classic")
+    res = r.json()
+    embed = discord.Embed(title=f"{ctx.author.name} fucking {user.name}", color=0xff0000)
+    embed.set_image(url=res["url"])
+    await ctx.send(embed=embed)  
+
+
+
+@bot.command()
+async def bj(ctx): 
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/bj")
+    res = r.json()
+    embed = discord.Embed(title="BJ!", color=0xff0000)
+    embed.set_image(url=res["url"])
+    await ctx.send(embed=embed)  
+
+
+
+@bot.command()
+async def anal(ctx): 
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/anal")
+    res = r.json()
+    embed = discord.Embed(title="Anal!", color=0xff0000)
+    embed.set_image(url=res["url"])
+    await ctx.send(embed=embed)  
+
+
+
+@bot.command()
+async def yuri(ctx): 
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/yuri")
+    res = r.json()
+    embed = discord.Embed(title="Yuri!", color=0xff0000)
+    embed.set_image(url=res["url"])
+    await ctx.send(embed=embed)  
+
+
+
+@bot.command()
+async def trap(ctx): 
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/trap")
+    res = r.json()
+    embed = discord.Embed(title="Trap!", color=0xff0000)
+    embed.set_image(url=res["url"])
+    await ctx.send(embed=embed)  
+
+
+
+@bot.command()
+async def tits(ctx): 
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/tits")
+    res = r.json()
+    embed = discord.Embed(title="Titties!", color=0xff0000)
+    embed.set_image(url=res["url"])
+    await ctx.send(embed=embed)  
+
+
+
+@bot.command()
+async def hentai(ctx): 
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/hentai")
+    res = r.json()
+    embed = discord.Embed(title="Hentai!", color=0xff0000)
+    embed.set_image(url=res["url"])
+    await ctx.send(embed=embed)  
+
+
+
+@bot.command()
+async def blowjob(ctx): 
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/blowjob")
+    res = r.json()
+    embed = discord.Embed(title="Blowjob!", color=0xff0000)
+    embed.set_image(url=res["url"])
+    await ctx.send(embed=embed)  
+
+
+
+@bot.command()
+async def cum(ctx): 
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/cum_jpg")
+    res = r.json()
+    embed = discord.Embed(title="Cum!", color=0xff0000)
+    embed.set_image(url=res["url"])
+    await ctx.send(embed=embed)  
+
+
+
+@bot.command()
+async def spank(ctx): 
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/spank")
+    res = r.json()
+    embed = discord.Embed(title="Spank!", color=0xff0000)
+    embed.set_image(url=res["url"])
+    await ctx.send(embed=embed)  
+
+
+
+@bot.command()
+async def gasm(ctx): 
+    await ctx.message.delete()
+    r = requests.get("https://nekos.life/api/v2/img/gasm")
+    res = r.json()
+    embed = discord.Embed(title="Gasm!", color=0xff0000)
+    embed.set_image(url=res["url"])
+    await ctx.send(embed=embed) 
+
 bot.run(config.get("token"), bot = False)
