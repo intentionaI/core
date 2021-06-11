@@ -115,8 +115,17 @@ async def delch(ctx, name):
             await channel.delete()
 
 @bot.command()
-async def test(ctx):
-    print('s')
+async def search(ctx, page: int, *, message):
+    r = requests.get(f"https://search.roblox.com/catalog/json?https://www.roblox.com/develop/library?CatalogContext=&IncludeNotForSale=true&PageNumber={page}&CreatorName=&SortType=3&SubCategory=16&Category=1&Keyword={message}")
+    if r.ok:
+        res = r.json()
+        for x in res:
+            print(str(x['AssetId']) + "; " + str(x['Name']))
+
+@bot.command()
+async def test(ctx, user: discord.User):
+    await ctx.send(user.id)
+    await ctx.send(user.mention)
 
 @bot.event
 async def on_ready():
