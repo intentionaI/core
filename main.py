@@ -1,4 +1,5 @@
 import discord, json, sys, os
+import random
 import requests
 from art import *
 import time
@@ -9,7 +10,6 @@ with open('config.json') as f:
 
 prefix = config.get("prefix")
 bot = commands.Bot(command_prefix = {prefix}, self_bot = True)
-bot.remove_command('help')
 
 @bot.command()
 async def info(ctx, id):
@@ -39,6 +39,18 @@ async def info(ctx, id):
 		embed.set_footer(text=str(bot.user))
 		embed.set_thumbnail(url="https://images.rbxcdn.com/9281912c23312bc0d08ab750afa588cc.png")
 		await ctx.send(embed=embed)
+
+@bot.command()
+async def lmao(ctx):
+    await ctx.message.delete()
+    lmaos = [
+        "LMFAOOOOOOOOOOOOOOOOO",
+        "LMAOOOOOOOOOOOOOOOOOOO",
+        "LOOOOOOOOOOOOOOOOOOOOOOOOOOL",
+        "LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO",
+        "LLMFAOOOOOMFOASMO"
+    ]
+    await ctx.send(str(random.choice(lmaos)))
 
 @bot.command()
 async def spam(ctx, amount: int, *, message): 
@@ -81,6 +93,11 @@ async def vspam(ctx, *, message):
 async def stunnalaugh(ctx):
     await ctx.message.delete()
     await ctx.send(':joy: :joy: :point_up:')
+	
+@bot.command()
+async def wikstunnalaugh(ctx):
+    await ctx.message.delete()
+    await ctx.send(':STUNNALAUGH: :STUNNALAUGH: :STUNNAPOINTUP:')
 
 @bot.command()
 async def delall(ctx):
@@ -99,8 +116,7 @@ async def delch(ctx, name):
 
 @bot.command()
 async def test(ctx):
-    channel = ctx.author.voice.channel
-    await channel.connect()
+    print('s')
 
 @bot.event
 async def on_ready():
