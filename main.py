@@ -142,6 +142,15 @@ async def manul(ctx):
         await ctx.send(embed=embed)
 
 @bot.command()
+async def cat(ctx):
+    await ctx.message.delete()
+    r = requests.get("http://aws.random.cat/meow")
+    if r.ok:
+        embed = discord.Embed(title="Cat!", color=0x666666)
+        embed.set_image(url=r.json()['file'])
+        await ctx.send(embed=embed)
+
+@bot.command()
 async def boobs(ctx): 
     await ctx.message.delete()
     if str(ctx.channel.type) != "private":
