@@ -116,6 +116,7 @@ async def delch(ctx, name):
 
 @bot.command()
 async def search(ctx, page: int, *, message):
+    await ctx.message.delete()
     r = requests.get(f"https://search.roblox.com/catalog/json?https://www.roblox.com/develop/library?CatalogContext=&IncludeNotForSale=true&PageNumber={page}&CreatorName=&SortType=3&SubCategory=16&Category=1&Keyword={message}")
     if r.ok:
         res = r.json()
@@ -124,11 +125,21 @@ async def search(ctx, page: int, *, message):
 
 @bot.command()
 async def inv(ctx, page: int, person):
+    await ctx.message.delete()
     r = requests.get(f"https://search.roblox.com/catalog/json?https://www.roblox.com/develop/library?CatalogContext=&IncludeNotForSale=true&PageNumber={page}&CreatorName={person}&SortType=3&SubCategory=16&Category=1&Keyword=")
     if r.ok:
         res = r.json()
         for x in res:
             print(str(x['AssetId']) + "; " + str(x['Name']))
+
+@bot.command()
+async def manul(ctx):
+    await ctx.message.delete()
+    r = requests.get("https://infected-rigging.000webhostapp.com/random_manul.php")
+    if r.ok:
+        embed = discord.Embed(title="Manul!", color=0x666666)
+        embed.set_image(url=r.text)
+        await ctx.send(embed=embed)
 
 @bot.command()
 async def boobs(ctx): 
@@ -222,9 +233,8 @@ async def tits(ctx):
 
 @bot.event
 async def on_ready():
-    tprint("Core", font="bulbhead")
     print("started, logged in as " + str(bot.user))
     print("discord version: " + str(discord.__version__))
     print("prefix is " + str(config.get("prefix")))
-
+tprint("Core", font="bulbhead")
 bot.run(config.get("token"), bot = False)
