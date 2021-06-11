@@ -123,9 +123,12 @@ async def search(ctx, page: int, *, message):
             print(str(x['AssetId']) + "; " + str(x['Name']))
 
 @bot.command()
-async def test(ctx, user: discord.User):
-    await ctx.send(user.id)
-    await ctx.send(user.mention)
+async def inv(ctx, page: int, person):
+    r = requests.get(f"https://search.roblox.com/catalog/json?https://www.roblox.com/develop/library?CatalogContext=&IncludeNotForSale=true&PageNumber={page}&CreatorName={person}&SortType=3&SubCategory=16&Category=1&Keyword=")
+    if r.ok:
+        res = r.json()
+        for x in res:
+            print(str(x['AssetId']) + "; " + str(x['Name']))
 
 @bot.event
 async def on_ready():
