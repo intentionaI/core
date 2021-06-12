@@ -1,5 +1,6 @@
 # Core
 Open-source Discord Selfbot
+Also if you make/edit and give away your edited version, you must make it open source or I will take the repo/discord server down. No skids allowed.
 
 Discord invite:
 https://discord.gg/W6bRcqEDpC
