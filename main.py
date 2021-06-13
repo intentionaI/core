@@ -13,32 +13,33 @@ bot = commands.Bot(command_prefix = {prefix}, self_bot = True)
 
 @bot.command()
 async def info(ctx, id):
-	await ctx.message.delete()
-	r = requests.get(f"http://api.roblox.com/Marketplace/ProductInfo?assetId={id}")
-	if r.ok:
-		res = r.json()
-		if res['AssetTypeId'] == 3:
-			embed = discord.Embed(title=res["Name"], colour=0x666666, inline=False)
-			embed.add_field(name="Creator:", value=res['Creator']["Name"], inline=False)
-			embed.add_field(name="Asset ID:", value=res["AssetId"], inline=False)
-			embed.add_field(name="Is For Sale:", value=res["IsForSale"], inline=False)
-			embed.add_field(name="Creation Date:", value=res["Created"], inline=False)
-			embed.add_field(name="Sales: ", value=res["Sales"], inline=False)
-			embed.set_footer(text=str(bot.user))
-			embed.set_thumbnail(url="https://t1.rbxcdn.com/eadc8982548a4aa4c158ba1dad61ff14")
-			await ctx.send(embed=embed)
-		elif res['AssetTypeId'] != 3:
-			embed = discord.Embed(title="ID provided is not a valid audio", colour=0x666666, inline=False)
-			embed.add_field(name="Info:", value="Please put a valid audio ID", inline=False)
-			embed.set_footer(text=str(bot.user))
-			embed.set_thumbnail(url="https://images.rbxcdn.com/9281912c23312bc0d08ab750afa588cc.png")
-			await ctx.send(embed=embed)
-	else:
-		embed = discord.Embed(title="ID provided is not a valid asset", colour=0x666666, inline=False)
-		embed.add_field(name="Info:", value="Please put a valid asset ID", inline=False)
-		embed.set_footer(text=str(bot.user))
-		embed.set_thumbnail(url="https://images.rbxcdn.com/9281912c23312bc0d08ab750afa588cc.png")
-		await ctx.send(embed=embed)
+    await ctx.message.delete()
+    r = requests.get(f"http://api.roblox.com/Marketplace/ProductInfo?assetId={id}")
+    if r.ok:
+        res = r.json()
+        if res['AssetTypeId'] == 3:
+            embed = discord.Embed(title=res["Name"], colour=0x666666, inline=False)
+            embed.add_field(name="Creator:", value=res['Creator']["Name"], inline=False)
+            embed.add_field(name="Asset ID:", value=res["AssetId"], inline=False)
+            embed.add_field(name="URL:", value=f"https://roblox.com/library/{id}", inline=False)
+            embed.add_field(name="Is For Sale:", value=res["IsForSale"], inline=False)
+            embed.add_field(name="Creation Date:", value=res["Created"], inline=False)
+            embed.add_field(name="Sales: ", value=res["Sales"], inline=False)
+            embed.set_footer(text=str(bot.user))
+            embed.set_thumbnail(url="https://t1.rbxcdn.com/eadc8982548a4aa4c158ba1dad61ff14")
+            await ctx.send(embed=embed)
+        elif res['AssetTypeId'] != 3:
+            embed = discord.Embed(title="ID provided is not a valid audio", colour=0x666666, inline=False)
+            embed.add_field(name="Info:", value="Please put a valid audio ID", inline=False)
+            embed.set_footer(text=str(bot.user))
+            embed.set_thumbnail(url="https://images.rbxcdn.com/9281912c23312bc0d08ab750afa588cc.png")
+            await ctx.send(embed=embed)
+    else:
+        embed = discord.Embed(title="ID provided is not a valid asset", colour=0x666666, inline=False)
+        embed.add_field(name="Info:", value="Please put a valid asset ID", inline=False)
+        embed.set_footer(text=str(bot.user))
+        embed.set_thumbnail(url="https://images.rbxcdn.com/9281912c23312bc0d08ab750afa588cc.png")
+        await ctx.send(embed=embed)
 
 @bot.command()
 async def lmao(ctx):
