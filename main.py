@@ -68,7 +68,6 @@ async def chspam(ctx, amount: int, *, message):
     guild = ctx.message.guild
     await ctx.message.delete()
     for z in range(amount): 
-        time.sleep(0.005)
         await guild.create_text_channel(str(message))
 
 @bot.command()
@@ -76,7 +75,6 @@ async def caspam(ctx, amount: int, *, message):
     guild = ctx.message.guild
     await ctx.message.delete()
     for z in range(amount): 
-        time.sleep(0.005)
         await guild.create_category(str(message))
 
 @bot.command()
@@ -84,7 +82,6 @@ async def vspam(ctx, amount: int, *, message):
     guild = ctx.message.guild
     await ctx.message.delete()
     for z in range(amount): 
-        time.sleep(0.005)
         await guild.create_voice_channel(str(message))
 
 @bot.command()
