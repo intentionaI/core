@@ -1,8 +1,5 @@
-import discord, json, sys, os
-import random
-import requests
+import discord, json, sys, os, random, requests, time
 from art import *
-import time
 from discord.ext import commands
 
 with open('config.json') as f:
@@ -67,26 +64,26 @@ async def version(ctx):
     await ctx.send(embed=embed)
 
 @bot.command()
-async def chspam(ctx, *, message):
+async def chspam(ctx, amount: int, *, message):
     guild = ctx.message.guild
     await ctx.message.delete()
-    while True:
+    for z in range(amount): 
         time.sleep(0.005)
         await guild.create_text_channel(str(message))
 
 @bot.command()
-async def caspam(ctx, *, message):
+async def caspam(ctx, amount: int, *, message):
     guild = ctx.message.guild
     await ctx.message.delete()
-    while True:
+    for z in range(amount): 
         time.sleep(0.005)
         await guild.create_category(str(message))
 
 @bot.command()
-async def vspam(ctx, *, message):
+async def vspam(ctx, amount: int, *, message):
     guild = ctx.message.guild
     await ctx.message.delete()
-    while True:
+    for z in range(amount): 
         time.sleep(0.005)
         await guild.create_voice_channel(str(message))
 
@@ -132,6 +129,21 @@ async def inv(ctx, page: int, person):
         res = r.json()
         for x in res:
             print(str(x['AssetId']) + "; " + str(x['Name']))
+
+@bot.command()
+async def createrole(ctx, amount: int, *, message):
+    await ctx.message.delete()
+    for _i in range(amount):
+        await ctx.guild.create_role(name=message, color=0x808080)
+
+@bot.command()
+async def delallroles(ctx):
+    await ctx.message.delete()
+    for role in list(ctx.guild.roles):
+        try:
+            await role.delete()
+        except:
+            pass
 
 @bot.command()
 async def manul(ctx):
