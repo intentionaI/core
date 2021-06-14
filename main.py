@@ -255,7 +255,9 @@ async def tits(ctx):
 
 @bot.event
 async def on_ready():
+    r = requests.get('https://raw.githubusercontent.com/pashaaaaaaa/core/main/version.json').json()
     print("started, logged in as " + str(bot.user))
+    print("core version: " + str(r['version']))
     print("discord version: " + str(discord.__version__))
     print("prefix is " + str(config.get("prefix")))
 tprint("Core", font="bulbhead")
