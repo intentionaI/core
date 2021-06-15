@@ -7,11 +7,8 @@ https://discord.gg/W6bRcqEDpC
 
 # Requirements
 Over 10 IQ
-
 Python3
-
 Pip
-
 Packages: discord, json, requests, art
 
 # Instructions on using
