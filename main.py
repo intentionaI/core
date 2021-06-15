@@ -39,6 +39,24 @@ async def info(ctx, id):
         await ctx.send(embed=embed)
 
 @bot.command()
+async def guildinfo(ctx):
+    await ctx.message.delete()
+    if str(ctx.channel.type) != "private":
+        server = ctx.guild
+        tc_vc_channels = len(server.text_channels) + len(server.voice_channels)
+        embed = discord.Embed(title="Info on: " + server.name, colour=0x666666, inline=False)
+        embed.add_field(name="Current Channel:", value="#" + str(ctx.message.channel), inline=False)
+        embed.add_field(name="Server ID:", value=server.id, inline=False)
+        embed.add_field(name="Region:", value=server.region, inline=False)
+        embed.add_field(name="Total Channels: ", value=tc_vc_channels, inline=False)
+        embed.add_field(name="TC Amount: ", value=len(server.text_channels))
+        embed.add_field(name="VC Amount: ", value=len(server.voice_channels))
+        embed.set_footer(text=str(bot.user))
+        await ctx.send(embed=embed)
+    elif str(ctx.channel.type) == "private":
+        print("use dis in a guild doofus")
+
+@bot.command()
 async def lmao(ctx):
     await ctx.message.delete()
     lmaos = [
@@ -51,18 +69,8 @@ async def lmao(ctx):
     await ctx.send(str(random.choice(lmaos)))
 
 @bot.command()
-async def gayrate(ctx, user: discord.User):
-    await ctx.message.delete()
-    percent = str(random.randint(1, 100)) + "%"
-    user = ctx.message.mentions[0].mention
-    embed = discord.Embed(title="Gay Rating", colour=0x666666, inline=False)
-    embed.add_field(name="Rating:", value=user + "'s gayrating is " + percent, inline=False)
-    embed.set_footer(text=str(bot.user))
-    await ctx.send(embed=embed)
-
-@bot.command()
 async def spam(ctx, amount: int, *, message): 
-    await ctx.message.delete()
+    await ctx.message.delete()    
     for a in range(amount):
         await ctx.send(message)
 
@@ -70,7 +78,6 @@ async def spam(ctx, amount: int, *, message):
 async def version(ctx):
     await ctx.message.delete()
     embed = discord.Embed(title="Discord Version", colour=0x666666, inline=False)
-    embed.set_footer(text=str(bot.user))
     embed.add_field(name="Version:", value=str(discord.__version__), inline=False)
     await ctx.send(embed=embed)
 
@@ -159,7 +166,6 @@ async def manul(ctx):
     r = requests.get("https://infected-rigging.000webhostapp.com/random_manul.php")
     if r.ok:
         embed = discord.Embed(title="Manul!", color=0x666666)
-        embed.set_footer(text=str(bot.user))
         embed.set_image(url=r.text)
         await ctx.send(embed=embed)
 
@@ -169,7 +175,6 @@ async def cat(ctx):
     r = requests.get("http://aws.random.cat/meow")
     if r.ok:
         embed = discord.Embed(title="Cat!", color=0x666666)
-        embed.set_footer(text=str(bot.user))
         embed.set_image(url=r.json()['file'])
         await ctx.send(embed=embed)
 
@@ -181,7 +186,6 @@ async def boobs(ctx):
             r = requests.get("https://nekos.life/api/v2/img/boobs")
             res = r.json()
             embed = discord.Embed(title="Boobs!", color=0x666666)
-            embed.set_footer(text=str(bot.user))
             embed.set_image(url=res["url"])
             await ctx.send(embed=embed)
         else:
@@ -197,7 +201,6 @@ async def nsfwneko(ctx):
             r = requests.get("https://nekos.life/api/v2/img/nsfw_neko_gif")
             res = r.json()
             embed = discord.Embed(title="NSFW Neko!", color=0x666666)
-            embed.set_footer(text=str(bot.user))
             embed.set_image(url=res["url"])
             await ctx.send(embed=embed)
         else:
@@ -213,7 +216,6 @@ async def lesbian(ctx):
             r = requests.get("https://nekos.life/api/v2/img/les")
             res = r.json()
             embed = discord.Embed(title="Lesbian!", color=0x666666)
-            embed.set_footer(text=str(bot.user))
             embed.set_image(url=res["url"])
             await ctx.send(embed=embed)
         else:
@@ -229,7 +231,6 @@ async def yuri(ctx):
             r = requests.get("https://nekos.life/api/v2/img/yuri")
             res = r.json()
             embed = discord.Embed(title="Yuri!", color=0x666666)
-            embed.set_footer(text=str(bot.user))
             embed.set_image(url=res["url"])
             await ctx.send(embed=embed)
         else:
@@ -245,7 +246,6 @@ async def trap(ctx):
             r = requests.get("https://nekos.life/api/v2/img/trap")
             res = r.json()
             embed = discord.Embed(title="Trap!", color=0x666666)
-            embed.set_footer(text=str(bot.user))
             embed.set_image(url=res["url"])
             await ctx.send(embed=embed)
         else:
@@ -261,7 +261,6 @@ async def tits(ctx):
             r = requests.get("https://nekos.life/api/v2/img/tits")
             res = r.json()
             embed = discord.Embed(title="Titties!", color=0x666666)
-            embed.set_footer(text=str(bot.user))
             embed.set_image(url=res["url"])
             await ctx.send(embed=embed)
         else:
