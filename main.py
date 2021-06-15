@@ -52,6 +52,7 @@ async def lmao(ctx):
 
 @bot.command()
 async def gayrate(ctx, user: discord.User):
+    await ctx.message.delete()
     percent = str(random.randint(1, 100)) + "%"
     user = ctx.message.mentions[0].mention
     embed = discord.Embed(title="Gay Rating", colour=0x666666, inline=False)
