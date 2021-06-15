@@ -51,8 +51,16 @@ async def lmao(ctx):
     await ctx.send(str(random.choice(lmaos)))
 
 @bot.command()
+async def gayrate(ctx, user: discord.User):
+    percent = str(random.randint(1, 100)) + "%"
+    user = ctx.message.mentions[0].mention
+    embed = discord.Embed(title="Gay Rating", colour=0x666666, inline=False)
+    embed.add_field(name="Rating:", value=user + "'s gayrating is " + percent, inline=False)
+    await ctx.send(embed=embed)
+
+@bot.command()
 async def spam(ctx, amount: int, *, message): 
-    await ctx.message.delete()    
+    await ctx.message.delete()
     for a in range(amount):
         await ctx.send(message)
 
