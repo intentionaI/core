@@ -6,10 +6,10 @@ Discord invite:
 https://discord.gg/W6bRcqEDpC
 
 # Requirements
-Over 10 IQ
-Python3
-Pip
-Packages: discord, json, requests, art
+1. Over 10 IQ
+2. Python3
+3. Pip
+4. Packages: discord, json, requests, art
 
 # Instructions on using
 1. Download python3 (https://python.org)
