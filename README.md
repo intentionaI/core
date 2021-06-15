@@ -5,6 +5,12 @@ Also if you make/edit and give away your edited version, you must make it open s
 Discord invite:
 https://discord.gg/W6bRcqEDpC
 
+# Requirements
+Over 10 IQ
+Python3
+Pip
+Packages: discord, json, requests, art
+
 # Instructions on using
 1. Download python3 (https://python.org)
 2. Download this repo as a zip
