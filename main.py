@@ -17,6 +17,7 @@ async def info(ctx, id):
         if res['AssetTypeId'] == 3:
             embed = discord.Embed(title=res["Name"], colour=0x666666, inline=False)
             embed.add_field(name="Creator:", value=res['Creator']["Name"], inline=False)
+            embed.add_field(name="Description:", value=res["Description"], inline=False)
             embed.add_field(name="Asset ID:", value=res["AssetId"], inline=False)
             embed.add_field(name="URL:", value=f"https://roblox.com/library/{id}", inline=False)
             embed.add_field(name="Is For Sale:", value=res["IsForSale"], inline=False)
