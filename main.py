@@ -47,7 +47,6 @@ async def guildinfo(ctx):
         embed = discord.Embed(title="Info on: " + server.name, colour=0x666666, inline=False)
         embed.add_field(name="Current Channel:", value="#" + str(ctx.message.channel), inline=False)
         embed.add_field(name="Server ID:", value=server.id, inline=False)
-        embed.add_field(name="Region:", value=server.region, inline=False)
         embed.add_field(name="Total Channels: ", value=tc_vc_channels, inline=False)
         embed.add_field(name="TC Amount: ", value=len(server.text_channels))
         embed.add_field(name="VC Amount: ", value=len(server.voice_channels))
